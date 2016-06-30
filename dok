@@ -1,0 +1,1990 @@
+= Security for Microservices
+Firstname Lastname <author@asciidoctor.org>
+1.0, July 29, 2014, Asciidoctor 1.5 article template
+:toc: left
+:toclevels: 5
+:sectnums:
+:sectnumlevels: 5
+:icons: font
+:quick-uri: http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+
+
+== IT-Sicherheit
+
+Für Authorisierung eines Nutzers
+
+=== Schutzziel (en. Security Goals)
+
+Liste der wichtigsten Schutzziele:
+
+Schutzziele die im ref. manual für den behandelt werden. Für welche Assets? Prozesse, Werte.
+
+für den Authentifizierungsprozess:
+
+- [x] Authentizität
+- [ ] Datenintigrität
+- [x] Informationsvertraulichkeit
+- [ ] Verfügbarkeit
+- [ ] Verbindlichkeit
+- [x] Anonymisierung (mit Einschränkung)
+
+
+=== Sicherheitsmaßnahmen (en. Security Measures)
+
+Sicherheitsmaßnahmen für den Authentifizierungsprozess
+
+==== Authentizität
+Provider für Anmeldedaten
+
+* In-Memory
+* JDBC
+* LDAP
+* (OpenID)
+
+SSO Protokolle/Infrastruktur
+
+* CAS, CAS-Server
+
+
+
+==== Datenintigrität
+
+==== Informationsvertraulichkeit
+
+Authentifizierungsprozess bei für Web:
+
+link:http://docs.spring.io/spring-security/site/docs/4.1.0.RELEASE/reference/htmlsingle/#digest-processing-filter[Digest Authentication]: Sicherer als Basic/Form Authentication, weil Passowrt nicht als Klartext versendet wird. Nutzt Token.
+
+link:http://docs.spring.io/spring-security/site/docs/4.1.0.RELEASE/reference/htmlsingle/#basic-processing-filter[Basic Authentication] Wenn Forms genutzt werden. Darf nur in Verbindung mit HTTPS verwendet werden, weil Passwort in Klartext versendet wird.
+
+
+
+link:http://docs.spring.io/spring-security/site/docs/4.1.0.RELEASE/reference/htmlsingle/#core-services-password-encoding[Für Passwortverschlüsselung]
+
+* nur Bcrypt verwenden
+
+legacy
+
+* MD5 (+salt)
+* SHA (+salt)
+
+
+
+==== Verfügbarkeit
+
+==== Verbindlichkeit
+
+==== Anonymisierung
+
+Für Authentifizierung:
+Es gibt keine anonyme Authentifizierung, sie wird gleich behandelt wie nicht authentifiziert. Es ist nur eine Konfigurationsmöglickeit, um festzulegen welche Ressourcen von nicht Authentifizierten Nutzern oder von Nutzern mit Rolle anonym zugreifen können.
+
+
+
+
+=== Angriffe (en. Attacks)
+
+auf Authentifizierung:
+
+link:http://docs.spring.io/spring-security/site/docs/4.1.0.RELEASE/reference/htmlsingle/#csrf[Cross Site Request Forgery (CSRF)]
+
+
+
+=== Bedrohungen (en. Threats)
+
+=== Sicherheitsrichtlinien (en. Security Policy)
+
+
+== Ressourcen
+=== Spring Webseite
+
+==== Getting Started Guides
+
+Quelle: link:https://spring.io/guides#gs[Getting Started Guides]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+==== Authenticating a User with LDAP
+
+Quelle: link:https://spring.io/guides/gs/authenticating-ldap/[Authenticating a User with LDAP]
+Authenticating a User with LDAP: Learn how to secure an application with LDAP.
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+=== Securing a Web Application
+
+Quelle: link:https://spring.io/guides/gs/securing-web/[Securing a Web Application]
+Learn how to protect your web application with Spring Security.
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+=== Tutorials
+
+Quelle: link:https://spring.io/guides#tutorials[Tutorials]
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+==== Spring Security and Angular JS
+
+Quelle: link:https://spring.io/guides/tutorials/spring-security-and-angular-js/[Spring Security and Angular JS] +
+A tutorial on how to use Spring Security with a single page application with various backend architectures, ranging from a simple single server to an API gateway with OAuth2 authentication.
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+==== Spring Boot and OAuth2
+
+Quelle: link:https://spring.io/guides/tutorials/spring-boot-oauth2/[Spring Boot and OAuth2] +
+A tutorial on "social" login and single sign on with Facebook and Github
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+=== Ressourcen der Spring Security
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+==== Spring Security Reference
+
+Quelle: link:http://docs.spring.io/spring-security/site/docs/4.1.0.RELEASE/reference/htmlsingle/[Spring Security Reference 4.1.0.RELEASE]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [x] in Bearbeitung
+- [ ] done
+|===
+
+
+==== Spring Security Guides 4.1.0.RELEASE
+
+link:http://docs.spring.io/spring-security/site/docs/current/guides/html5//[Spring Security Guides 4.1.0.RELEASE]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+==== Webinar Replay: Spring Security
+
+Quelle: link:http://spring.io/blog/2014/01/21/webinar-replay-spring-security-3-2[Webinar Replay: Spring Security 3.2]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+=== UAA
+
+link:https://github.com/cloudfoundry/uaa[github - UAA]
+
+<<Keycloak>> als alternative evaluieren!
+
+
+=== Spring LDAP
+
+Quelle: link:http://projects.spring.io/spring-ldap/[Spring LDAP]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+====Spring LDAP Reference
+
+Quelle: link:http://docs.spring.io/spring-ldap/docs/2.1.0.RELEASE/reference/[Spring LDAP Reference version 2.1.0.RELEASE]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+==== Webinar Replay: Spring LDAP
+
+
+Quelle: link:http://spring.io/blog/2014/03/26/webinar-replay-spring-ldap-2-0-0[Webinar Replay: Spring LDAP 2.0.0]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+=== Videos
+
+link:https://www.youtube.com/user/SpringSourceDev[Youtube Channel - Spring Develop]
+
+
+
+
+link:https://www.youtube.com/watch?v=USMl2GNg2r0[Youtube - Securing Microservices with Spring Cloud Security]
+
+Kapitel <<Securing Microservices with Spring Cloud Security>>
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [x] gesehen, bis implementierung
+- [x] in Berbeitung
+- [ ] Inhalte in dieses Dokument aufgenommen
+- [ ] reviewed?
+|===
+
+
+=== Thorsten Email
+
+==== Links
+
+Ref: <<Microservices Security: All The Questions You Should Be Asking>>
+
+Quelle: link:http://www.grahamlea.com/2015/07/microservices-security-questions/[Blog - Microservices Security: All The Questions You Should Be Asking]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [x] gelesen
+- [x] Inhalte in dieses Dokument aufgenommen
+- [ ] reviewed?
+|===
+
+
+Quelle: link:http://presos.dsyer.com/decks/microservice-security.html#slide1[Präsentations - Security for Microservices with Spring]
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [x] gelesen
+- [ ] Inhalte in dieses Dokument aufgenommen
+- [ ] reviewed?
+|===
+
+
+link:https://blog.lukaspradel.com/user-role-permission-security-rbac-in-spring-security-4/[User-Role-Permission security pattern (RBAC) in Spring Security 4]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [x] gelesen
+- [ ] Inhalte in dieses Dokument aufgenommen
+- [ ] reviewed?
+|===
+
+
+
+link:http://www.baeldung.com/role-and-privilege-for-spring-security-registration[Spring Security – Roles and Privileges]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [x] gelesen
+- [ ] Inhalte in dieses Dokument aufgenommen
+- [ ] reviewed?
+|===
+
+==== PDFs
+
+Kapitel  <<Seminararbeit - Alexander Gropp - Rollenbasierte Zugriffskontrolle (RBAC)>>
+
+Google: link:https://www.google.de/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&ved=0ahUKEwiAzYeF6MrNAhXI6xQKHf76CmUQFghAMAU&url=https%3A%2F%2Fdbis.ipd.kit.edu%2Fdownload%2FSS07GroppRbac-Ausarbeitung.pdf&usg=AFQjCNGpwHjBftV0Wh8e9gXxu412hFsT6w&sig2=UTJ2FRrjb_39lzgzKzGjZg&cad=rja[Seminararbeit - Alexander Gropp - Rollenbasierte Zugriffskontrolle (RBAC)]
+
+Lokal: link:++Anhang\Seminararbeit - Alexander Gropp - Rollenbasierte Zugriffskontrolle.pdf++[Seminararbeit - Alexander Gropp - Rollenbasierte Zugriffskontrolle (RBAC)]
+
+[cols="5a,5a", options="header"]
+|===
+|relevant?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [x] gelesen
+- [ ] Inhalte in dieses Dokument aufgenommen
+- [ ] reviewed?
+|===
+
+
+=== Seminararbeit - Alexander Gropp - Rollenbasierte Zugriffskontrolle (RBAC)
+
+
+
+=== Microservices Security: All The Questions You Should Be Asking
+
+
+===== Core Services
+
+__(by which I mean services that make up your system which do not interface with the Internet or other external systems)__
+
+Are you just protecting your system at the Internet boundary? (https://buildsecurityin.us-cert.gov/articles/knowledge/principles/defense-in-depth[Defence in Depth])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+What protections do you have in place if an intruder gets inside your core network? (Defence in Depth)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+How easily could someone inside your network get access to the traffic between your services? (https://en.wikipedia.org/wiki/Secure_communication[Secure Communications])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do your services trust each other too much? Or… Do your services trust __whoever is calling them__ too much? (Are you sure only your services can call into your services?) (https://buildsecurityin.us-cert.gov/articles/knowledge/principles/reluctance-to-trust[Reluctance to Trust])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+When your service is called, does it require the calling software to authenticate itself, or does it let anything connect? (Service Authentication)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+Do your services let their callers access all the APIs that a service offers, or just the ones it needs to fulfil its function? (Service Authorisation)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+Does the identity of the person who originated each call __at the client__ get passed into your internal services, or is that lost at the gateway? (Principal Propagation)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+Can your services request any data from each other, or only the data of a user that has given their authority? (Principal Authorisation)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If an attacker owned a service, could they pretty easily request anything from its downstream services? (Principal Authorisation)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+What guarantees do you have that a request received from an authenticated user hasn’t been tampered with? (Tamper-Proofing)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+How do you ensure that an authorised request, delivered a second time, is detected and rejected? (https://en.wikipedia.org/wiki/Replay_attack[Replay Protection])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+Everyone knows about SQL injection, right? But what measures do you have in place to ensure no one writes code that’s vulnerable to SQL injection? (https://www.owasp.org/index.php/SQL_Injection[SQL Injection])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Are you familiar with all the other types of injection, and how to protect against them? (https://www.owasp.org/index.php/Top_10_2013-A1-Injection[Injection Beyond SQL])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+Are you up to speed with the state of the art in password storage? (Password Storage)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do you realise that, if your password database is stolen, simply salted hashes are completely useless these days? (http://www.troyhunt.com/2012/06/our-password-hashing-has-no-clothes.html[Password Storage])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If you need to upgrade your password storage algorithm, how do you do that without mass disruption to your users? (Password Storage)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How do you actively identify the private and sensitive data in your database? (https://buildsecurityin.us-cert.gov/articles/knowledge/principles/promoting-privacy[Promoting Privacy])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If your data gets stolen, what protections do you have in place to prevent the most sensitive parts from being readable? (Private & Sensitive Data)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If your services are using private keys, how do you protect those keys from being used by an intruder? (https://en.wikipedia.org/wiki/Key_management[Key Management], https://buildsecurityin.us-cert.gov/articles/knowledge/principles/never-assuming-that-your-secrets-are-safe[Never assume that your secrets are safe])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do you know what a https://en.wikipedia.org/wiki/Hardware_security_module[Hardware Security Module (HSM)] is, and when and how to make use of one? (Key Management)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What logging do you have in place that you can use to detect and analyse security breaches? (Security Logging / https://en.wikipedia.org/wiki/Security_information_and_event_management[Security Information and Event Management (SIEM)])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+===== Middleware
+
+__(by which I mean any 3rd party software that you run inside your system and interface with. For us at Tyro, currently this is mainly our databases and messaging system, but it may include other systems for you, e.g. BPM middleware. Most of these questions apply to integrated external software as well.)__
+
+
+
+Do you share a single database login across all your services? (https://buildsecurityin.us-cert.gov/articles/knowledge/principles/least-privilege[Least Privilege])
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How much data do your services have access to? All of it? Or only what they need? (Least Privilege)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+If an attacker got hold of one service’s database credentials, how much data would they get access to? (Least Privilege)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+Do your DB authorisation policies allow updates and deletes to tables that the application only ever inserts into? (Least Privilege)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do you share a single messaging middleware login across all your services? (Least Privilege)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Does your messaging middleware even __have__ login credentials? (https://issues.apache.org/jira/browse/KAFKA-1682[Some don’t yet!]) (Least Privilege)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+Do your services have access to all messages in your system, or only the ones they need to see? (Least Privilege)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Can your services send messages to any queue, or only where the ones they need to? (Least Privilege)
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If an attacker got hold of one service’s messaging credentials, how much data could they get access to? (Least Privilege)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If an attacker got hold of one service’s messaging credentials, what __operations__ could they initiate? (Least Privilege)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If you’re protecting your database and messaging with login credentials, how are you protecting the credentials? (https://buildsecurityin.us-cert.gov/articles/knowledge/principles/never-assuming-that-your-secrets-are-safe[Never assume that your secrets are safe])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How might the legacy systems in your architecture put other services at risk? (https://buildsecurityin.us-cert.gov/articles/knowledge/principles/securing-the-weakest-link[Securing the weakest link])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+===== Edge Services
+
+__(by which I mean services which interface with the Internet or with other, externally managed 3rd party systems)__
+
+Have you upgraded your TLS implementations to the latest versions possible? (https://en.wikipedia.org/wiki/Secure_communication[Secure Communications])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Have you configured TLS to eliminate downgrade and weak cipher attacks? (Secure Communications)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Who on your staff knows everything about TLS and how to configure it safely? (Secure Communications)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How do you ensure your internal websites and admin URLs aren’t accidentally opened up to the Internet?
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What information can I get out of the unauthenticated APIs of your gateway services? (https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Authentication_and_Error_Messages[Enumeration])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+I have a list of cracked passwords and user emails. Could I use your password reminder URL to test which users are in your system? (https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management[Authentication])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Does the rest of your system trust your gateway services too much? (Reluctance to Trust)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If you assume that your gateway services have been fully breached, what would you do differently elsewhere? (Defence in Depth)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If your gateway services were fully breached, what data could be gleaned from memory? (Defence in Depth)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+If your gateway services were fully breached, what data could be captured from the network traffic? (Defence in Depth)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+===== Web & Other Clients
+
+__(by which I mean software which you may or may not author which is interfacing with your server-side systems, most likely across the Internet)__
+
+
+
+How are you helping your users to choose safer passwords? (http://www.troyhunt.com/2011/04/bad-passwords-are-not-fun-and-good.html[Password complexity])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+When a password is entered wrong, what feedback do you give? Could it be used to enumerate user accounts? (Enumeration)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do you lock an account after some number of failed login attempts? (https://www.owasp.org/index.php/Authentication[Authentication])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How many chances do you give an attacker to guess the password on each account? (Account Security)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+When you lock an account, what feedback do you give? Could it be used to enumerate user accounts? (Enumeration)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do you have a password reminder feature?  Could it be used to enumerate user accounts? (Enumeration)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do you have a password reset feature?  Could it be used to enumerate user accounts? (Enumeration)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Have you considered whether your system, or some parts of it, warrant https://en.wikipedia.org/wiki/Multi-factor_authentication[multi-factor authentication]? (Enumeration)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Has anyone else noticed there seems to be an epic battle between security and good User Experience? (https://uxmag.com/articles/security-vs-design-standing-at-odds[UX vs Security])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Are you familiar with the OWASP Top Ten web vulnerabilities? (https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project#tab=OWASP_Top_10_for_2013[Web Security Flaws])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Could you name all of the OWASP Top Ten web vulnerabilities? (Web Security Flaws)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Could everyone on your team name all of the OWASP Top Ten? (Web Security Flaws)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Could everyone on your team explain __how to protect against__ all of the OWASP Top Ten? (Web Security Flaws)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How do you ensure that every piece of user data is properly escaped when used as output? (https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet[XSS / Output Encoding])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How do you escape user data correctly for the myriad of different contexts in which it’s output? (XSS / Output Encoding)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How are you helping prevent your users from getting attacked as a result of using your web app?
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Does your web app design treat the browser as an insecure environment? (Reluctance to Trust)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Does your native mobile app design treat the device as an insecure environment? (Reluctance to Trust)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How are you helping prevent your users from getting attacked as a result of using your native app?
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What data are you storing or caching on the client?  How are you protecting it?  What could happen if someone stole it? Does it need to be there at all?
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+===== People & Process
+
+__(by which I mean the people who develop and operate your systems, and the processes they use to do that)__
+
+What are you doing to ensure security is baked into everything your engineering team does? (https://www.bsimm.com/online/[Build Security In])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How do you burn common security principles into everyone’s brains? (https://buildsecurityin.us-cert.gov/articles/knowledge/principles/design-principles[Security Principles])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What security activities are explicitly built into your development process? (https://www.owasp.org/index.php/Secure_SDLC_Cheat_Sheet[Secure Software Development Process])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What security training do you provide for your developers, testers and operations staff? (Security Training)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do tech staff just know the names of vulnerabilities, or do they actually know how to exploit & test them? (Security Training)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What controls have you put around who can access which parts of your system? (https://en.wikipedia.org/wiki/Access_control[Access Control])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What’s your plan for regularly reviewing the appropriateness of those controls and people’s access? (Access Control Review/Audit)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What’s your process for discovering and remediating vulnerabilities in  3rd party software? (https://en.wikipedia.org/wiki/Vulnerability_management[Vulnerability Management])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+How do you encourage engineers to dedicate time to brainstorming the risks in your systems? (Risk Brainstorming / http://www.codingthearchitecture.com/2012/07/11/risk_storming.html[“Risk-storming”])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Do you have service templates that ensure every new service starts off with great security? (Secure Application Templates)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What’s your plan for getting internal staff regularly testing the security of your systems?
+(https://en.wikipedia.org/wiki/Security_testing[Security Testing])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What’s your plan for how often you’ll bring in external security experts, and how you’ll choose what they focus on? (Security Testing)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What activities do you get expert help with?  Just penetration testing? How about design and architecture reviews? (Security Testing)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What automated tests do you have to catch vulnerabilities as they’re written? (http://devops.com/2015/04/06/automated-security-testing-continuous-delivery-pipeline/[Automated Security Testing])
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+What automated tests do you have to ensure security controls are always in place? (Automated Security Testing)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+Are you constantly asking yourselves:  “What if this control fails? What’s the next control?” (Defence in Depth)
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [ ] ja
+- [x] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+And finally… Assume your network is compromised. Which parts of your system are keeping you up at night?
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+- [x] ja
+- [ ] nein
+|
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+=== Keycloak
+
+"besser" als UAA
+
+Standalone Server
+
+ Keycloak is an open source Identity and Access Management solution aimed at modern applications and services. It makes it easy to secure applications and services with little to no code.
+
+
+
+
+kompatibilität mit Spring ??? Siehe <<Spring Security Adapter>> .
+
+Quellen:
+
+link:http://www.keycloak.org/[Homepage]
+
+link:http://blog.keycloak.org/[Blog]
+
+link:https://github.com/keycloak/keycloak[github]
+
+
+==== Spring Security Adapter
+
+link:https://github.com/keycloak/keycloak-documentation/blob/master/topics/spring-security-adapter.adoc[doku - github]
+
+
+
+
+
+[cols="5a,5a", options="header"]
+|===
+|relevant für Security-Model?
+|Status
+
+|
+[options=interactive]
+- [x] ja
+- [ ] nein
+|
+[options=interactive]
+- [ ] in Bearbeitung
+- [ ] done
+|===
+
+
+
+
+=== Securing Microservices with Spring Cloud Security
+
+Aus <<Videos>>
+Start Video in 11:30!
+
+link:http://de.slideshare.net/SpringCentral/securing-microservices-with-spring-cloud-security-53170178[Slides]
+
+link:http://de.slideshare.net/WillTran1/enabling-cloud-native-security-with-oauth2-and-multitenant-uaa[alternativ Slides] noch nicht in Ressourcen aufgenommen!
+
+
+==== Microservice Security Concerns
+
+*Common concerns*
+
+* Central user store bottleneck (dont want)
+* Single singn on (want)
+* Statelessness (want)
+* User credentials == pure pwnage (dont wnat)
+* Fine grained authorization (want)
+* Interoperability with non brwoser clients (want)
+
+
+==== Enter OAuth2 + OpenID Connect
+
+===== What is OAuth2?
+
+*Delegated Authorization*
+
+* A protocol for conveying authorization decisions (via a token)
+* Standard means of obtaining a token (aka the 4 OAuth2 grant types)
+** Authorization Code (for webapplications, most secure)
+** Resource Owner Password Grant (for webapp with hosting your own login page, also for none Browser Clients)
+** Implicit (for single page javascript app, browser specific!)
+** Client Credentials (for client or machine that operate autonomously without users, for example async backend processes)
+* Users and Clients are seperate entities
+** "I am authorizing this app to perform these actions on my behalft"
+
+===== What is OAuth2 Not?
+
+*OAuth2 is not Authentication*
+
+* The user must be authenticated to obtain token
+* How the user is authenticated is outside  of the spec
+* How the token is validated is outside the spec
+* What the token contains is outside the spec
+* Read more: link:http://oauth.net/aricles/authentication/
+
+
+
+===== What is OpenID Connect?
+
+*Delegated Authentication*
+
+* A protocol for cenveying user identity (via a signed JWT)
+* Built on top of OAuth2
+* Standard means of obtaining an ID token
+** The same 4 OAuth2 grant types are supported
+* Standard means of verifying ID tokens
+* "Will is authorizing this app to perform these actions in his behalf"
+** And here's his email address in case you need it
+
+
+
+
+===== What is OpenID Connect Not?
+
+*Authentication*
+
+* Still doesn't say how users are to be authenticated
+* This is good: there's lots of ways  to authenticate users
+** Internal DB
+** Another Identity Provider
+*** SAML
+*** LDAP
+** Mulit-factor
+
+===== How to get tokens
+
+Lingo:
+
+* User = Resource Owner
+* Web App = Client
+* REST API = Resource Server
+* Auth server = OpenID Connect Provider (eg Google)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
